@@ -1,0 +1,10 @@
+#denegar el acceso a las carpetas
+Options All -Indexes
+#activar el motor de las redirecciones, sirve para configurar Url's amigables
+RewriteEngine On
+#verifica si un directorio es valido por el metodo request
+RewriteCond %{REQUEST_FILENAME} !-d
+##verifica si un archivo es valido por el metodo request
+RewriteCond %{REQUEST_FILENAME} !-f
+#almacena en una variable llamada url, todo lo que venga depues del index.php
+RewriteRule ^(.*) index.php?url=$1 [QSA,L]  
